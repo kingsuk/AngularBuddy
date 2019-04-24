@@ -1,0 +1,36 @@
+<!-- <div class="alert alert-dark">
+  
+  <div *ngFor="let header of headers">
+      <h4>{{header}}</h4>
+  </div>
+  
+
+    
+  </div> -->
+  <div class="container-fluid">
+    <div class="row">
+        
+        <!-- <div  *ngIf="reminders"> -->
+          <div *ngFor="let item of dataSet">
+            <div class="card bg-light mb-3" style="max-width: 28rem; margin: 15px">
+              <div class="card-header"><strong>Subject : </strong>{{item.Subject}}</div>
+              <div class="card-body">
+                <div class="card-title"><strong>Location : </strong>{{item.Location}}</div>
+                <p class="card-text"><strong>Body : </strong>{{item.Body}}</p>
+              </div>
+              <div class="card-footer bg-transparent">
+                <div>
+                    <strong>{{item.Start | date:"h:mm a"}} - {{item.End | date:"h:mm a"}} </strong> 
+                    
+                </div>
+                <div>
+                    From Outlook
+                </div>
+              </div>
+            </div>
+          </div>
+        <!-- </div> -->
+        
+        
+    </div>
+  </div>

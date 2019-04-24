@@ -1,0 +1,29 @@
+<!-- <div class="alert alert-dark">
+  
+  <div *ngFor="let header of headers">
+      <h4>{{header}}</h4>
+  </div>
+  
+
+    
+  </div> -->
+  <div class="container-fluid">
+    <div class="row">
+        
+        <!-- <div  *ngIf="reminders"> -->
+          <div *ngFor="let item of dataSet">
+            <div class="card bg-light" style="width: 18rem; margin: 20px;">
+              <div class="card-body">
+                <h5 class="card-title">{{item.Start}} - {{item.End}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">From Outlook</h6>
+                <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                <!-- <a href="#" class="card-link">Done</a>
+                <a href="#" class="card-link">Postpone</a> -->
+              </div>
+            </div>
+          </div>
+        <!-- </div> -->
+        
+        
+    </div>
+  </div>

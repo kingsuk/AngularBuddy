@@ -1,8 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
-import {Router} from "@angular/router"
-
 
 interface Reminder {
   reminderText: string;
@@ -10,26 +8,30 @@ interface Reminder {
 }
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-reminder',
+  templateUrl: './reminder.component.html',
+  styleUrls: ['./reminder.component.css']
 })
-export class AppComponent {
-
+export class ReminderComponent implements OnInit {
+  
+  title = 'Reminders';
+  
   headers: string[];
+  reminders : Observable<Reminder[]>;
 
-  constructor(private http:HttpClient,private router: Router) { }
+
+  constructor(private http:HttpClient) { }
 
   ngOnInit() {
-    this.http.get('http://localhost:3000/dataType').subscribe((result) => this.success(result), (error) => console.log(error));
+    this.http.get('http://localhost:3000/currentData').subscribe((result) => this.success(result), (error) => console.log(error));
     this.http.get('http://localhost:3000/currentHeader').subscribe((result) => this.successHeader(result), (error) => console.log(error));
 
   }
 
   success(result: any) {
     var jsonObject: any = result;
-    console.log(jsonObject[0]);
-    this.router.navigate(['/'+jsonObject[0]])
+    console.log(jsonObject);
+    this.reminders = jsonObject;
   }
 
   successHeader(result: any) {
@@ -37,4 +39,5 @@ export class AppComponent {
     console.log(jsonObject);
     this.headers = jsonObject;
   }
+
 }
