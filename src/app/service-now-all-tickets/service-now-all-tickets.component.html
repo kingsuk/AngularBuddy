@@ -1,0 +1,65 @@
+<!-- <div class="alert alert-dark">
+  
+  <div *ngFor="let header of headers">
+      <h4>{{header}}</h4>
+  </div>
+  
+
+    
+  </div> -->
+
+  <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="#">
+      <img src="assets/images/icon.ico" alt="Buddy Logo" width="40">
+    </a>
+    
+    <!-- Links -->
+    <ul class="navbar-nav">
+  
+      <li class="nav-item" *ngFor="let header of headers">
+        <h5 class="text-white">{{header}}</h5>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link" routerLink="/free-slots" routerLinkActive="active">Free-Slots</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/meetings" routerLinkActive="active">Meetings</a>
+      </li> -->
+      <!-- <li class="nav-item">
+        <a class="nav-link" routerLink="/reminder" routerLinkActive="active">Meetings</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/reminder" routerLinkActive="active">Free Time</a>
+      </li> -->
+    </ul>
+  </nav>
+  
+  
+  <div class="container-fluid">
+    <div class="row">
+        
+        <!-- <div  *ngIf="reminders"> -->
+          <div *ngFor="let item of dataSet">
+            <div class="card bg-light mb-3" style="max-width: 28rem; margin: 15px">
+              <div class="card-header"><strong>Number : </strong>{{item.number}}</div>
+              <div class="card-body">
+                <div class="card-title"><strong>Short Description : </strong>{{item.short_description}}</div>
+                <p class="card-text"><strong>Server Address : </strong>{{item.description}}</p>
+              </div>
+              <div class="card-footer bg-transparent">
+                <div>
+                    <strong>Created by {{item.sys_created_by}}</strong> 
+                    
+                </div>
+                <div>
+                    From ServiceNow
+                </div>
+              </div>
+            </div>
+          </div>
+        <!-- </div> -->
+        
+        
+    </div>
+  </div>

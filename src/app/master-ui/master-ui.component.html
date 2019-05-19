@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+      <div class="col-md-12">
+          <div class="nav-item" *ngFor="let header of headers">
+              <h3 class="h3">{{header}}</h3>
+          </div>
+          <div class="loader11">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+
+    <!-- <div  *ngIf="reminders"> -->
+    <div *ngFor="let item of dataSet">
+      <div class="card bg-light mb-3" style="max-width: 20rem; margin: 10px">
+        <div class="card-header"><strong>Number : </strong>{{item.number}}</div>
+        <div class="card-body">
+          <div class="card-title"><strong>Short Description : </strong>{{item.short_description}}</div>
+          <p class="card-text"><strong>Server Address : </strong>{{item.description}}</p>
+        </div>
+        <div class="card-footer bg-transparent">
+          <div>
+            <strong>Created by {{item.sys_created_by}}</strong>
+
+          </div>
+          <div>
+            From ServiceNow
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
