@@ -1,5 +1,10 @@
 body{background-color:#348ac7 !important;}
 .text-white{color:#fff;text-shadow:1px 1px 1px #000;}
+.maindiv
+{
+    overflow-y: scroll;
+	height: 670px;
+}
 h3.h3{text-align:center;text-transform:capitalize;font-size:1.5em;}
 .container-fluid{background: linear-gradient(to right,#7474bf,#348ac7);}
 .container{padding:2em 0em 5em 0em;}

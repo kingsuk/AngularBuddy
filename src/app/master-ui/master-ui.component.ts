@@ -26,6 +26,8 @@ export class MasterUiComponent implements OnInit {
   @Output() headersChange = new EventEmitter<string[]>();
   @Input() dataSet : Observable<OutputData[]>;
   @Output() dataSetChange = new EventEmitter<Observable<OutputData[]>>();
+  @Input() logs: string[];
+  @Output() logChange = new EventEmitter<string[]>();
 
 
   constructor(private http:HttpClient) { }
@@ -41,20 +43,26 @@ export class MasterUiComponent implements OnInit {
   makeApiCalls(){
     this.http.get('http://localhost:3000/currentHeader').subscribe((result) => this.successHeader(result), (error) => console.log(error));
     this.http.get('http://localhost:3000/currentData').subscribe((result) => this.success(result), (error) => console.log(error));
+    this.http.get('http://localhost:3000/currentLog').subscribe((result) => this.successLog(result), (error) => console.log(error));
   }
 
   success(result: any) {
     var jsonObject: any = result;
-    console.log(jsonObject);
+    //console.log(jsonObject);
     this.dataSet = jsonObject;
     this.dataSetChange.emit(this.dataSet)
   }
 
   successHeader(result: any) {
     var jsonObject: any = result;
-    console.log(jsonObject);
+    //console.log(jsonObject);
     this.headers = jsonObject;
     this.headersChange.emit(this.headers);
   }
-
+  successLog(result: any) {
+    var jsonObject: any = result;
+    console.log(jsonObject);
+    this.logs = jsonObject;
+    this.logChange.emit(this.logs);
+  }
 }
