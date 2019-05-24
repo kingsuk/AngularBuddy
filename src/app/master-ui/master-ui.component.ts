@@ -29,6 +29,9 @@ export class MasterUiComponent implements OnInit {
   @Input() logs: string[];
   @Output() logChange = new EventEmitter<string[]>();
 
+  @Input() ListningIndicator: boolean;
+  @Output() ListningIndicatorChange = new EventEmitter<boolean>();
+
 
   constructor(private http:HttpClient) { }
 
@@ -44,6 +47,7 @@ export class MasterUiComponent implements OnInit {
     this.http.get('http://localhost:3000/currentHeader').subscribe((result) => this.successHeader(result), (error) => console.log(error));
     this.http.get('http://localhost:3000/currentData').subscribe((result) => this.success(result), (error) => console.log(error));
     this.http.get('http://localhost:3000/currentLog').subscribe((result) => this.successLog(result), (error) => console.log(error));
+    this.http.get('http://localhost:3000/showListningIndicator').subscribe((result) => this.showListningIndicator(result), (error) => console.log(error));
   }
 
   success(result: any) {
@@ -64,5 +68,11 @@ export class MasterUiComponent implements OnInit {
     console.log(jsonObject);
     this.logs = jsonObject;
     this.logChange.emit(this.logs);
+  }
+
+  showListningIndicator(result: any) {
+    console.log(result)
+    this.ListningIndicator = result[0];
+    this.ListningIndicatorChange.emit(this.ListningIndicator);
   }
 }

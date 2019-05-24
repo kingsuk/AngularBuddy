@@ -7,7 +7,7 @@
               <div class="nav-item" *ngFor="let header of headers">
                   <h3 class="h3">{{header}}</h3>
               </div>
-              <div class="loader11">
+              <div class="loader11" [style.visibility]="ListningIndicator ? 'visible' : 'hidden'">
                   <span></span>
                   <span></span>
                   <span></span>
